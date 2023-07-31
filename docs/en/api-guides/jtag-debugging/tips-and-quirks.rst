@@ -48,7 +48,7 @@ Offset should be in hex format. To reset to the default behaviour you can specif
 Why Stepping with "next" Does Not Bypass Subroutine Calls?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-When stepping through the code with ``next`` command, GDB is internally setting a breakpoint (one out of two available) ahead in the code to bypass the subroutine calls. This functionality will not work, if the two available breakpoints are already set elsewhere in the code. If this is the case, delete breakpoints to have one "spare". With both breakpoints already used, stepping through the code with ``next`` command will work as like with ``step`` command and debugger will step inside subroutine calls.
+When stepping through the code with ``next`` command, GDB is internally setting a breakpoint ahead in the code to bypass the subroutine calls. If all {IDF_TARGET_SOC_CPU_BREAKPOINTS_NUM} breakpoints are already set, this functionality will not work. If this is the case, delete breakpoints to have one "spare". With all breakpoints already used, stepping through the code with ``next`` command will work as like with ``step`` command and debugger will step inside subroutine calls.
 
 
 .. _jtag-debugging-tip-code-options:
